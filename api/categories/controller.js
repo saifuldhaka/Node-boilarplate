@@ -7,22 +7,30 @@ const db = low(adapter)
 let categories = [];
 
 function getCategories() {
+  categories = db.get('categories')
+  .value()
   return categories;
 }
 
 function getCategory(id) {
-  return categories.find((cat) => cat.id === Number(id));
+  // return categories.find((cat) => cat.id === Number(id));
+
+  categories = db
+  .get('categories')
+  .find({ id: Number(id) })
+  .value();
+
+  return categories;
 }
 
 function createCategory(category) {
-  console.log(category);
   // Add a Category
   db.get('categories')
   .push(category)
   .write()
   
-  
-  categories.push(category);
+
+  // categories.push(category);
 }
 
 function deleteCategory(id) {
