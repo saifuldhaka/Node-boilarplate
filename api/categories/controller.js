@@ -34,7 +34,13 @@ function createCategory(category) {
 }
 
 function deleteCategory(id) {
-  categories = categories.filter((category) => Number(id) !== category.id);
+  console.log(Number(id));
+  // categories = categories.filter((category) => Number(id) !== category.id);
+
+  db.get('categories')
+  .remove({ id: Number(id) })
+  .write()
+
 }
 
 module.exports = {
