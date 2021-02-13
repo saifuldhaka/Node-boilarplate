@@ -26,4 +26,3 @@ architecture
 - solution-brief.md
 ```
 
-# Fixed Stack Assumptions
